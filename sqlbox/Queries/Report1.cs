@@ -1,4 +1,6 @@
-﻿namespace sqlbox.Queries
+﻿using sqlbox.Visualization;
+
+namespace sqlbox.Queries
 {
     public class Report1 : QueryBase
     {
@@ -10,6 +12,7 @@
             DisplayQuery = "SELECT program_ver, count(DISTINCT pda_imei)\r\n" +
                                "\t\tFROM pair_log\r\n" +
                                "\t\tGROUP BY program_ver";
+            Visualizations.Add(new PieChart("Zastoupení jednotlivých verzí"));
         }
     }
 }

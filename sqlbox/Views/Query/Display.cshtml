@@ -60,7 +60,13 @@
 
                 <div id="visualization" class="panel-collapse collapse in" role="tabpanel">
                     <div class="panel-body">
-                        xx
+                        @foreach (var visualization in Model.Visualizations)
+                        {
+                            <h4>@visualization.Name</h4>
+                            <div>
+                                @Html.Raw(visualization.GetHtml(Model.Result))
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

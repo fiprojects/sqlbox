@@ -1,4 +1,6 @@
-﻿namespace sqlbox.Queries
+﻿using sqlbox.Visualization;
+
+namespace sqlbox.Queries
 {
     public class Report8 : QueryBase
     {

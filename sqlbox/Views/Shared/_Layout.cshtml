@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/prism.css" asp-append-version="true" />
 
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     @Html.Raw(JavaScriptSnippet.FullScript)
 </head>
 
@@ -38,7 +39,7 @@
 
         <div class="col-sm-8 col-sm-offset-4 col-md-9 col-md-offset-3 main">
             <h1 class="page-header">@ViewBag.Title</h1>
-            
+
             @RenderBody()
         </div>
     </div>

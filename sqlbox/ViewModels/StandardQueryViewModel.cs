@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using sqlbox.Config;
 using sqlbox.Interpreter;
 using sqlbox.Queries;
+using sqlbox.Visualization;
 
 namespace sqlbox.ViewModels
 {
@@ -20,7 +21,7 @@ namespace sqlbox.ViewModels
             ? "~/ParameterForms/" + _query.ParameterForm + ".cshtml"
             : null;
 
-        public List<Visualization> Visualizations => _query.Visualizations;
+        public List<IVisualization> Visualizations => _query.Visualizations;
 
         public string Tutorial => _query.Tutorial;
 

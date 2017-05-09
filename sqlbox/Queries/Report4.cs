@@ -1,4 +1,6 @@
-﻿namespace sqlbox.Queries
+﻿using sqlbox.Visualization;
+
+namespace sqlbox.Queries
 {
     public class Report4 : QueryBase
     {
@@ -19,6 +21,7 @@
                 "\t) AS q\r\n" +
                 "\tWHERE app_run_time < prev_time AND time_diff <= interval '1 minute'\r\n" +
                 "\tGROUP BY program_ver";
+            Visualizations.Add(new ColumnChart("Počet pádů programu"));
         }
     }
 }

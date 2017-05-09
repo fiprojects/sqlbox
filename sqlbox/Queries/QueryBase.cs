@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using sqlbox.Interpreter;
+using sqlbox.Visualization;
 
 namespace sqlbox.Queries
 {
@@ -21,6 +22,6 @@ namespace sqlbox.Queries
 
         public List<Parameter> Parameters { get; } = new List<Parameter>();
 
-        public List<Visualization> Visualizations { get; } = new List<Visualization>();
+        public List<IVisualization> Visualizations { get; } = new List<IVisualization>();
     }
 }

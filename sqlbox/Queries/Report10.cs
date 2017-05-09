@@ -1,4 +1,6 @@
-﻿namespace sqlbox.Queries
+﻿using sqlbox.Visualization;
+
+namespace sqlbox.Queries
 {
     public class Report10 : QueryBase
     {
@@ -14,6 +16,7 @@
                            "\t) AS q\r\n" +
                            "\tWHERE pda_run_time < prev_time\r\n" +
                            "\tGROUP BY pda_imei";
+            Visualizations.Add(new ColumnChart("Četnost restartu zařízení"));
         }
     }
 }

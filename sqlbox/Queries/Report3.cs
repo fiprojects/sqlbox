@@ -1,4 +1,6 @@
-﻿namespace sqlbox.Queries
+﻿using sqlbox.Visualization;
+
+namespace sqlbox.Queries
 {
     public class Report3 : QueryBase
     {
@@ -14,6 +16,7 @@
                            "\t) AS q\r\n" +
                            "\tWHERE app_run_time < prev_time\r\n" +
                            "\tGROUP BY program_ver";
+            Visualizations.Add(new ColumnChart("Počet restartů programu"));
         }
     }
 }
