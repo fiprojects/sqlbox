@@ -20,7 +20,7 @@
                 Dotaz
             </h2>
             
-            <pre><code class="language-sql">@Html.Raw(Model.Query)</code></pre>
+            <pre><code class="language-sql">@Html.Raw(Model.DisplayQuery.Replace("<", "&lt;").Replace(">", "&gt;"))</code></pre>
         </div>
     </div>
     

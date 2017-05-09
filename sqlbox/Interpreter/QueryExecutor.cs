@@ -57,7 +57,8 @@ namespace sqlbox.Interpreter
                             {
                                 if (reader.GetValue(i) == DBNull.Value)
                                 {
-                                    return;
+                                    row.Add(string.Empty);
+                                    continue;
                                 }
 
                                 row.Add(reader.GetValue(i));

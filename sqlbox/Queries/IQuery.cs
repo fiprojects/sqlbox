@@ -13,6 +13,8 @@ namespace sqlbox.Queries
 
         string Query { get; set; }
 
+        string DisplayQuery { get; set; }
+
         string Tutorial { get; }
 
         string ParameterForm { get; }

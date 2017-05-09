@@ -11,7 +11,7 @@ namespace sqlbox.Queries
             IsDemo = true;
             Parameters.Add(new FrameParameter());
             ParameterForm = "OverFrame";
-            Query = "SELECT jmeno, plat, SUM(plat) OVER (ORDER BY plat [Frame]) AS sumo FROM zamestnanci";
+            Query = "SELECT jmeno, plat, SUM(plat) OVER (ORDER BY plat [Frame]) AS sumo\r\n\tFROM zamestnanci";
         }
     }
 }

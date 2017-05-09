@@ -11,9 +11,12 @@
   <ItemGroup>
     <Content Include="wwwroot\css\prism.css" />
     <Content Include="wwwroot\css\prism.js" />
+    <Content Include="wwwroot\images\Cube.png" />
+    <Content Include="wwwroot\images\LagLead.png" />
     <Content Include="wwwroot\images\OverOrderBy.png" />
     <Content Include="wwwroot\images\OverPartitionBy.png" />
     <Content Include="wwwroot\images\OverPartitionByOrderBy.png" />
+    <Content Include="wwwroot\images\Rollup.png" />
     <Content Include="wwwroot\js\prism.js" />
   </ItemGroup>
   <ItemGroup>

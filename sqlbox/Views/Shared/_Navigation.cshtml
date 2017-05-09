@@ -7,16 +7,39 @@
     <li><a asp-route="tutorial" asp-route-name="Window">Úvod do window funkcí <i class="fa fa-commenting"></i></a></li>
     <li><a asp-route="query" asp-route-name="DemoData">Ukázková data</a></li>
     <li><a asp-route="query" asp-route-name="Over">OVER</a></li>
-    <li><a asp-route="query" asp-route-name="OverOrderBy">OVER ORDER BY</a></li>
-    <li><a asp-route="query" asp-route-name="OverPartitionBy">OVER PARTITION BY</a></li>
-    <li><a asp-route="query" asp-route-name="OverPartitionByOrderBy">OVER PARTITION BY, ORDER BY</a></li>
-    <li><a asp-route="query" asp-route-name="OverFrame">OVER s FRAME klauzulí</a></li>
-    <li><a asp-route="query" asp-route-name="LagLead">LAG a LEAD</a></li>
+    <li><a asp-route="query" asp-route-name="OverOrderBy">OVER ORDER BY <i class="fa fa-snowflake-o"></i></a></li>
+    <li><a asp-route="query" asp-route-name="OverPartitionBy">OVER PARTITION BY <i class="fa fa-snowflake-o"></i></a></li>
+    <li><a asp-route="query" asp-route-name="OverPartitionByOrderBy">OVER PARTITION BY, ORDER BY <i class="fa fa-snowflake-o"></i></a></li>
+    <li><a asp-route="query" asp-route-name="OverFrame">OVER s FRAME klauzulí <i class="fa fa-filter"></i></a></li>
+    <li><a asp-route="query" asp-route-name="LagLead">LAG a LEAD  <i class="fa fa-filter"></i> <i class="fa fa-snowflake-o"></i></a></li>
 </ul>
 
 <h2>Pokročilé GROUP BY</h2>
 <ul class="nav nav-sidebar">
-    <li><a asp-route="tutorial" asp-route-name="Window">Úvod do pokročilých GROUP BY <i class="fa fa-commenting"></i></a></li>
-    <li><a asp-route="query" asp-route-name="Rollup">ROLLUP</a></li>
-    <li><a asp-route="query" asp-route-name="Cube">CUBE</a></li>
+    <li><a asp-route="query" asp-route-name="Rollup">ROLLUP <i class="fa fa-snowflake-o"></i></a></li>
+    <li><a asp-route="query" asp-route-name="Cube">CUBE <i class="fa fa-snowflake-o"></i></a></li>
+</ul>
+
+<h2>Analýza poskytnutých dat</h2>
+<ul class="nav nav-sidebar">
+    <li><a asp-route="query" asp-route-name="Statistics">Statistika</a></li>
+    <li><a asp-route="query" asp-route-name="ConnLogSample">Ukázka tabulky conn_log</a></li>
+    <li><a asp-route="query" asp-route-name="ServiceLogSample">Ukázka tabulky service_log</a></li>
+    <li><a asp-route="query" asp-route-name="Pairs">Spárované události</a></li>
+
+    <li><a asp-route="query" asp-route-name="Report1">Počet různých pda_imei pro každou verzi programu</a></li>
+    <li><a asp-route="query" asp-route-name="Report2">Počet různých device pro každou verzi programu <i class="fa fa-pie-chart"></i></a></li>
+    <li><a asp-route="query" asp-route-name="Report3">Počet restartů programu pro každou verzi <i class="fa fa-pie-chart"></i></a></li>
+    <li><a asp-route="query" asp-route-name="Report4">Počet pádů programu pro každou verzi</a></li>
+    <li><a asp-route="query" asp-route-name="Report5">Počet restartů programu pro každé zařízení (pda_imei)</a></li>
+    <li><a asp-route="query" asp-route-name="Report6">Počet restartů programu pro každé zařízení (device) <i class="fa fa-pie-chart"></i></a></li>
+    <li><a asp-route="query" asp-route-name="Report7">Čas uvedení zařízení (pda_imei) do provozu</a></li>
+    <li><a asp-route="query" asp-route-name="Report8">Délka používání zařízení</a></li>
+    <li><a asp-route="query" asp-route-name="Report9">Četnost restartu zařízení (pda_imei)</a></li>
+    <li><a asp-route="query" asp-route-name="Report10">Četnost restartu zařízení (device)</a></li>
+    <li><a asp-route="query" asp-route-name="Report11">Data změn verze <i class="fa fa-pie-chart"></i></a></li>
+    <li><a asp-route="query" asp-route-name="Report12">Doba strávená vozem v určité GSM síti</a></li>
+
+    <li><a asp-route="query" asp-route-name="OlapData">OLAP data</a></li>
+    <li><a asp-route="query" asp-route-name="OlapCube">OLAP kostka</a></li>
 </ul>

@@ -26,6 +26,10 @@ namespace sqlbox.ViewModels
 
         public string Query => _query.Query;
 
+        public string DisplayQuery => string.IsNullOrEmpty(_query.DisplayQuery)
+            ? Query
+            : _query.DisplayQuery;
+
         public int ColumnCount => _queryExecutor.ColumnNames.Count;
 
         public int RowCount => _queryExecutor.RowCount;
