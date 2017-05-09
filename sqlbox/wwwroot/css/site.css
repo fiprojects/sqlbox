@@ -135,6 +135,14 @@
                     background-color: #0277BD;
                 }
 
+            .main h2.box-header.parameters {
+                color: #C62828;
+            }
+
+                .main h2.box-header.parameters .icon {
+                    background-color: #C62828;
+                }
+
 
             .main h2.box-header.result {
                 color: #311B92;

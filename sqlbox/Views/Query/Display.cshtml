@@ -1,7 +1,5 @@
-﻿@model sqlbox.ViewModels.StandardQueryViewModel
-@{
-    ViewBag.Title = "Ukázková data";
-}
+﻿@using Microsoft.AspNetCore.Mvc.Rendering
+@model sqlbox.ViewModels.StandardQueryViewModel
 <div class="infobox">
     <div class="row">
         <div class="col-md-4">
@@ -25,6 +23,20 @@
             <pre><code class="language-sql">@Html.Raw(Model.Query)</code></pre>
         </div>
     </div>
+    
+    @if (!string.IsNullOrEmpty(Model.ParameterForm))
+    {
+        <h2 class="box-header parameters">
+            <span class="icon">
+                <i class="fa fa-filter"></i>
+            </span>
+            Nastavitelné parametry
+        </h2>
+
+        <div>
+            @Html.Partial(Model.ParameterForm)
+        </div>
+    }
 
     <h2 class="box-header info">
         <span class="icon">

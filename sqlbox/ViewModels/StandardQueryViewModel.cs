@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 using sqlbox.Config;
 using sqlbox.Interpreter;
 using sqlbox.Queries;
@@ -14,6 +15,10 @@ namespace sqlbox.ViewModels
         public string Title => _query.Name;
 
         public string Description => _query.Description;
+
+        public string ParameterForm => !string.IsNullOrEmpty(_query.ParameterForm)
+            ? "~/ParameterForms/" + _query.ParameterForm + ".cshtml"
+            : null;
 
         public List<Visualization> Visualizations => _query.Visualizations;
 
@@ -31,11 +36,11 @@ namespace sqlbox.ViewModels
 
         public List<List<object>> Result => _queryExecutor.Result;
 
-        public StandardQueryViewModel(ConnectionStrings connectionStrings, IQuery query)
+        public StandardQueryViewModel(ConnectionStrings connectionStrings, IQuery query, IQueryCollection httpQueries)
         {
             _query = query;
 
-            _queryExecutor = new QueryExecutor(connectionStrings, _query);
+            _queryExecutor = new QueryExecutor(connectionStrings, _query, httpQueries);
             _queryExecutor.Run();
         }
     }

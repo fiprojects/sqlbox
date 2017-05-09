@@ -1,11 +1,22 @@
 ﻿<ul class="nav nav-sidebar">
-    <li><a asp-controller="Home" asp-action="Index">Úvod</a></li>
+    <li><a asp-controller="Home" asp-action="Index">Úvod <i class="fa fa-commenting"></i></a></li>
 </ul>
 
 <h2>Představení analytických dotazů</h2>
 <ul class="nav nav-sidebar">
+    <li><a asp-route="tutorial" asp-route-name="Window">Úvod do window funkcí <i class="fa fa-commenting"></i></a></li>
     <li><a asp-route="query" asp-route-name="DemoData">Ukázková data</a></li>
+    <li><a asp-route="query" asp-route-name="Over">OVER</a></li>
     <li><a asp-route="query" asp-route-name="OverOrderBy">OVER ORDER BY</a></li>
-    <li><a asp-route="query" asp-route-name="OverPartitionBy">OVER PARITION BY</a></li>
+    <li><a asp-route="query" asp-route-name="OverPartitionBy">OVER PARTITION BY</a></li>
     <li><a asp-route="query" asp-route-name="OverPartitionByOrderBy">OVER PARTITION BY, ORDER BY</a></li>
+    <li><a asp-route="query" asp-route-name="OverFrame">OVER s FRAME klauzulí</a></li>
+    <li><a asp-route="query" asp-route-name="LagLead">LAG a LEAD</a></li>
+</ul>
+
+<h2>Pokročilé GROUP BY</h2>
+<ul class="nav nav-sidebar">
+    <li><a asp-route="tutorial" asp-route-name="Window">Úvod do pokročilých GROUP BY <i class="fa fa-commenting"></i></a></li>
+    <li><a asp-route="query" asp-route-name="Rollup">ROLLUP</a></li>
+    <li><a asp-route="query" asp-route-name="Cube">CUBE</a></li>
 </ul>

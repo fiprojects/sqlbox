@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Úvod do window funkcí";
+}
+
+<h2>Co jsou window funkce?</h2>
+<p>
+    Při použití agregačních funkcí s klauzulí OVER se z agregační funkce stane window funkce.
+    OVER umožňuje odkazovat na jiné řádky, které jsou nějakým způsobem spjaty s aktuálním řádkem.
+    Window funkce, narozdíl od agregační funkce, umožňují vypsat více řádků ke každé skupině výsledků.
+    Window funkce jsou názorně demonstrovány v příkladech, které používají tabulku <tt>zamestnanci</tt>
+    v databázi <tt>korporace</tt>.
+    <a class="btn btn-info btn-xs" asp-route="query" asp-route-name="DemoData">
+        <i class="fa fa-external-link"></i>
+        Zobrazit ukázková data
+    </a>
+</p>
+
+<h2>OVER</h2>
+<p>
+    Pokud je klauzule OVER prázdná, odkazujeme všechny řádky tabulky. Použijeme-li například <tt>SUM(plat) OVER()</tt>,
+    provede se suma nad celou tabulkou. 
+    <a class="btn btn-info btn-xs" asp-route="query" asp-route-name="Over">
+        <i class="fa fa-external-link"></i>
+        OVER
+    </a>
+    Srovnejte s klasickou agregační funkcí <tt>SUM(plat)</tt> bez klauzule OVER.
+    <a class="btn btn-info btn-xs" asp-route="query" asp-route-name="SumWithoutOver">
+        <i class="fa fa-external-link"></i>
+        SUM bez OVER
+    </a>
+</p>
+
+<p>
+    V klauzuli OVER lze pomocí <tt>ORDER BY</tt> specifikovat pořadí, ve kterém se bude výsledek počítat.
+    Po specifikaci pořadí se jako odkazované řádky berou řádky, které v při tomto řazení
+    předchází aktuální řádek. To lze například využít pro výpočet kumulativní sumy.
+
+    <a class="btn btn-info btn-xs" asp-route="query" asp-route-name="OverOrderBy">
+        <i class="fa fa-external-link"></i>
+        OVER ORDER BY
+    </a>
+</p>
+
+<p>
+    Kromě pořadí lze specifikovat také seskupení dat, nad kterými bude výpočet prováděn. 
+    Díky tomu lze např. vypočítat sumu pro každé oddělení zvlášť.
+
+    <a class="btn btn-info btn-xs" asp-route="query" asp-route-name="OverPartitionBy">
+        <i class="fa fa-external-link"></i>
+        OVER PARTITION BY
+    </a>
+    
+    <tt>OVER PARTITION BY</tt> lze zkombinovat s <tt>OVER ORDER BY</tt>.
+    <a class="btn btn-info btn-xs" asp-route="query" asp-route-name="OverPartitionBy">
+        <i class="fa fa-external-link"></i>
+        OVER PARTITION BY, ORDER BY
+    </a>
+</p>

@@ -1,0 +1,19 @@
+﻿<form>
+    <div class="row">
+        <div class="col-md-2">
+            <label for="Frame">FRAME klauzule</label>
+        </div>
+
+
+        <div class="col-md-10">
+            <select class="selectpicker" name="Frame" id="Frame">
+                <option value="PreceedingRange">RANGE UNBOUNDED PRECEDING</option>
+                <option value="Preceeding">ROWS UNBOUNDED PRECEDING</option>
+                <option value="Following">ROWS BETWEEN CURRENT ROW AND UNBOUNDED FOLLOWING</option>
+                <option value="Between">ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING</option>
+            </select>
+
+            <button type="submit" class="btn btn-default">Použít</button>
+        </div>
+    </div>
+</form>

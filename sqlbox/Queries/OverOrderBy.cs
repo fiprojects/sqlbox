@@ -8,7 +8,7 @@
             Description = "Použití window funkce OVER s ORDER BY.";
             IsDemo = true;
             Tutorial = "~/Tutorial/OverOrderBy.cshtml";
-            Query = "SELECT jmeno, plat, SUM(plat) OVER (ORDER BY plat) AS sumo\r\nFROM zamestnanci";
+            Query = "SELECT jmeno, plat, SUM(plat) OVER (ORDER BY plat) AS sumo FROM zamestnanci";
         }
     }
 }

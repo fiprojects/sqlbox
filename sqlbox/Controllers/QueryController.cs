@@ -23,7 +23,7 @@ namespace sqlbox.Controllers
                 return StatusCode(404);
             }
 
-            var model = new StandardQueryViewModel(_connectionStrings, query);
+            var model = new StandardQueryViewModel(_connectionStrings, query, HttpContext.Request.Query);
             ViewBag.Title = model.Title;
 
             return View(model);

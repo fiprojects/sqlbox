@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using Microsoft.AspNetCore.Http;
 using Npgsql;
 using sqlbox.Config;
 using sqlbox.Queries;
@@ -11,6 +13,7 @@ namespace sqlbox.Interpreter
     {
         private readonly ConnectionStrings _connectionStrings;
         private readonly IQuery _query;
+        private readonly IQueryCollection _httpQueries;
 
         public int RowCount { get; private set; }
 
@@ -20,10 +23,13 @@ namespace sqlbox.Interpreter
 
         public List<List<object>> Result { get; } = new List<List<object>>();
 
-        public QueryExecutor(ConnectionStrings connectionStrings, IQuery query)
+        public QueryExecutor(ConnectionStrings connectionStrings, IQuery query, IQueryCollection httpQueries)
         {
+            _httpQueries = httpQueries;
             _connectionStrings = connectionStrings;
-            _query = query;
+            _query = ExpandParameters(query);
+
+            Console.WriteLine(httpQueries.Count);
         }
 
         public void Run()
@@ -66,6 +72,26 @@ namespace sqlbox.Interpreter
             stopwatch.Stop();
 
             ExecutionTime = stopwatch.ElapsedMilliseconds;
+        }
+
+        private IQuery ExpandParameters(IQuery query)
+        {
+            foreach (var parameter in query.Parameters)
+            {
+                string choiceKey;
+                if (!_httpQueries.ContainsKey(parameter.Name) || !parameter.Choices.ContainsKey(_httpQueries[parameter.Name]))
+                {
+                    choiceKey = parameter.Choices.First().Key;
+                }
+                else
+                {
+                    choiceKey = _httpQueries[parameter.Name];
+                }
+
+                query.Query = query.Query.Replace("[" + parameter.Name + "]", parameter.Choices[choiceKey]);
+            }
+
+            return query;
         }
     }
 }

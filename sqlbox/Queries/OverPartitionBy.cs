@@ -8,7 +8,7 @@
             Description = "Použití window funkce OVER s PARITION BY.";
             IsDemo = true;
             Tutorial = "~/Tutorial/OverPartitionBy.cshtml";
-            Query = "SELECT jmeno, oddeleni, SUM(plat) OVER (PARTITION BY oddeleni) AS sumo\r\nFROM zamestnanci";
+            Query = "SELECT jmeno, oddeleni, SUM(plat) OVER (PARTITION BY oddeleni) AS sumo FROM zamestnanci";
         }
     }
 }

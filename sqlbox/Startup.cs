@@ -57,6 +57,10 @@ namespace sqlbox
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
+                    name: "tutorial",
+                    template: "Text/{Name?}",
+                    defaults: new { controller = "Text", action = "Display" });
+                routes.MapRoute(
                     name: "query",
                     template: "Show/{Name?}",
                     defaults: new { controller = "Query", action = "Display" });

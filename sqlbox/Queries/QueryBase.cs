@@ -11,9 +11,13 @@ namespace sqlbox.Queries
 
         public bool IsDemo { get; protected set; }
 
-        public string Query { get; protected set; }
+        public string Query { get; set; }
 
         public string Tutorial { get; protected set; }
+
+        public string ParameterForm { get; protected set; }
+
+        public List<Parameter> Parameters { get; } = new List<Parameter>();
 
         public List<Visualization> Visualizations { get; } = new List<Visualization>();
     }
