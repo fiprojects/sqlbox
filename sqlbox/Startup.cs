@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using sqlbox.Config;
 
 namespace sqlbox
 {
@@ -22,6 +23,14 @@ namespace sqlbox
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddOptions();
+            services.Configure<ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
+            services.Configure<ConnectionStrings>(config =>
+            {
+                config.Korporace = Configuration["ConnectionStrings:Korporace"];
+                config.Report = Configuration["ConnectionStrings:Report"];
+            });
+
             services.AddMvc();
         }
 
@@ -47,6 +56,10 @@ namespace sqlbox
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
+                routes.MapRoute(
+                    name: "query",
+                    template: "Show/{Name?}",
+                    defaults: new { controller = "Query", action = "Display" });
             });
         }
     }

@@ -1,0 +1,141 @@
+﻿@model sqlbox.ViewModels.StandardQueryViewModel
+@{
+    ViewBag.Title = "Ukázková data";
+}
+<div class="infobox">
+    <div class="row">
+        <div class="col-md-4">
+            <h2 class="box-header description">
+                <span class="icon">
+                    <i class="fa fa-lightbulb-o"></i>
+                </span>
+                Popis
+            </h2>
+        
+            <p>@Model.Description</p>
+        </div>
+        <div class="col-md-8">
+            <h2 class="box-header">
+                <span class="icon">
+                    <i class="fa fa-question"></i>
+                </span>
+                Dotaz
+            </h2>
+            
+            <pre><code class="language-sql">@Html.Raw(Model.Query)</code></pre>
+        </div>
+    </div>
+
+    <h2 class="box-header info">
+        <span class="icon">
+            <i class="fa fa-info"></i>
+        </span>
+        Informace a vizualizace
+    </h2>
+
+    <div class="panel-group" role="tablist" aria-multiselectable="true">
+        @if (Model.Visualizations.Count > 0)
+        {
+            <div class="panel panel-info">
+                <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                        <i class="fa fa-pie-chart"></i>
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#visualization" aria-expanded="true">
+                            Vizualizace
+                        </a>
+                    </h4>
+                </div>
+
+                <div id="visualization" class="panel-collapse collapse in" role="tabpanel">
+                    <div class="panel-body">
+                        xx
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (Model.Tutorial != null)
+        {
+            <div class="panel panel-info">
+                <div class="panel-heading" role="tab">
+                    <h4 class="panel-title">
+                        <i class="fa fa-snowflake-o"></i>
+                        <a class="collapsed" role="button" data-toggle="collapse" href="#help" aria-expanded="false">
+                            Sněhulákův průvodce dotazem
+                        </a>
+                    </h4>
+                </div>
+
+                <div id="help" class="panel-collapse collapse" role="tabpanel">
+                    <div class="panel-body">
+                        @Html.Partial(Model.Tutorial)
+                    </div>
+                </div>
+            </div>
+        }
+
+        <div class="panel panel-info">
+            <div class="panel-heading" role="tab">
+                <h4 class="panel-title">
+                    <i class="fa fa-cog"></i>
+                    <a class="collapsed" role="button" data-toggle="collapse" href="#technicalInfo" aria-expanded="false">
+                        Technické informace
+                    </a>
+                </h4>
+            </div>
+
+            <div id="technicalInfo" class="panel-collapse collapse" role="tabpanel">
+                <div class="panel-body">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th class="col-md-3">Počet sloupců</th>
+                            <td>@Model.ColumnCount</td>
+                        </tr>
+                        <tr>
+                            <th class="col-md-3">Počet řádků</th>
+                            <td>@Model.RowCount</td>
+                        </tr>
+                        <tr>
+                            <th>Doba běhu</th>
+                            <td>@Model.ExecutionTime ms</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+
+<h2 class="box-header result">
+    <span class="icon">
+        <i class="fa fa-eye"></i>
+    </span>
+    Výsledek dotazu
+</h2>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            @foreach (var columnName in Model.ColumnNames)
+            {
+                <th>@columnName</th>
+            }
+        </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var row in Model.Result)
+            {
+                <tr>
+                @foreach (var field in row)
+                {
+                    <td>@field.ToString()</td>
+                }
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
